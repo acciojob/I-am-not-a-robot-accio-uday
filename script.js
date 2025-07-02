@@ -13,7 +13,7 @@ const heading = document.getElementById('h');
 const para = document.getElementById('para');
 
 let clickedImages = [];
-let duplicateImages = '';
+let duplicateImage = '';
 
 function shuffle(array) {
 	for (let i = array.length - 1; i > 0; i--) {
@@ -23,12 +23,12 @@ function shuffle(array) {
 }
 
 function loadImages() {
-	let templates = [...images];
+	let tempImages = [...images];
 
 	const randomIndex = Math.floor(Math.random( ) * tempImages.length);
 	duplicateImage = tempImages[randomIndex];
 
-	let imageSet = [...templates, duplicateImage];
+	let imageSet = [...tempImages, duplicateImage];
 
 	shuffle(imageSet);
 
@@ -62,7 +62,7 @@ function selectImage(img) {
 	}
 }
 
-resetButton.addEventListener('click' () => {
+resetButton.addEventListener('click', () => {
 	clickedImages.forEach(img => img.style.border = '');
 	clickedImages = [];
 	resetButton.style.display = 'none';
